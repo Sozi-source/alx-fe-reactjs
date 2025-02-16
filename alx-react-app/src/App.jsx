@@ -39,7 +39,7 @@ function App() {
       <Footer />
 
     {/* User Profile */}
-    <div><UserProfile name = "Wilfred" age = {30} bio = "Loves coding" /></div>
+    <div> <Profile name="Alice" age={25} bio="Loves hiking and photography" /></div>
     </>
   )
 }
