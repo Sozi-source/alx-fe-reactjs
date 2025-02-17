@@ -3,7 +3,7 @@ function Footer(){
 
     return (
 <div>
-<footer>
+<footer style={{fontFamily:'fantasy', color: 'green'}}>
   <p>© 2023 City Lovers</p>
 </footer>
 
