@@ -1,16 +1,18 @@
 import React, {useState} from "react";
  
-const [count, setCount] = useState(0);
+function Counter(){
+    const [count, setCount] = useState(0);
 
-return (
-    <>
-    <p>Current Count: {count}</p>
+    return (
+        <>
+        <p style={{fontWeight:'bolder', fontSize:'20px', color:'darkblue'}}>Current Count: {count}</p>
+        
+    <button onClick={ () => setCount(count + 1)} style={{backgroundColor:'orange'}}>Increment</button>
+    <button onClick={ () => setCount(0)}style={{backgroundColor:'greenyellow'}}>Reset</button>
+    <button onClick={ () => setCount(count - 1)}style={{backgroundColor:'orange'}}>Decrement</button>
     
-<button onClick={ () => setCount(count + 1)}>Increment</button>
-<button onClick={ () => setCount(count - 1)}>Decrement</button>
-<button onClick={ () => setCount(0)}>Reset</button>
+    </>
+    )
+}
 
-
-</>
-)
-export default setCount;
+export default Counter;
