@@ -21,9 +21,9 @@ function App() {
       <Contact />
       <Routes>
         <Route path = "/" element = {<Home/>} />
-        <Route path = "/" about = {<About/>} />
-        <Route path = "/" service = {<Services/>} />
-        <Route path = "/" Contacts = {<Contacts/>} />
+        <Route path = "/about" element = {<About/>} />
+        <Route path = "/services" element = {<Services/>} />
+        <Route path = "/contact" element = {<Contact/>} />
       </Routes>
     </Router>
   )
