@@ -1,11 +1,12 @@
 
+import recipeStore from "./components/recipeStore";
 import AddRecipeForm from "./components/AddRecipeForm";
 import RecipeList from "./components/RecipeList";
 
 
 function App(){
 
-  const recipes = useRecipeStore((state) => state.recipes)
+  const recipes = recipeStore((state) => state.recipes)
 
 
 return (
