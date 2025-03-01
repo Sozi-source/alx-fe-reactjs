@@ -1,6 +1,7 @@
 import useRecipeStore from "./store/useRecipeStore";
-import AddRecipeForm from "./comp/AddRecipeForm";
-import RecipeList from "./componnets/RecipeList";
+import AddRecipeForm from "./components/AddRecipeForm";
+import RecipeList from "./components/RecipeList";
+
 
 function App(){
 
