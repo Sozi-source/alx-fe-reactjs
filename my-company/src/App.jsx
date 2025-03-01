@@ -15,10 +15,6 @@ function App() {
   return (
     <Router>
       <Navbar />
-      <Home />
-      <About />
-      <Services />
-      <Contact />
       <Routes>
         <Route path = "/" element = {<Home/>} />
         <Route path = "/about" element = {<About/>} />
