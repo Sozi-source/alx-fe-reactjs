@@ -1,9 +1,9 @@
-
+import { useNavigate } from "react-router-dom";
 import useRecipeStore from "./recipeStore";
 
 
 function DeleteRecipe(){
-
+const navigate = useNavigate()
 const {recipes, deleteRecipe} = useRecipeStore()
 return(
     <>
@@ -13,7 +13,7 @@ return(
     <li key={recipe.id}>
       {recipe.title}- {recipe.description}
     
-    <button onClick={() => deleteRecipe(recipe.id)}>Delete</button>
+    <button onClick={() => {deleteRecipe(recipe.id); navigate("/");}}>Delete</button>
     
     </li>
 
