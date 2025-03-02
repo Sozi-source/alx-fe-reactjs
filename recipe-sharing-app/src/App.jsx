@@ -3,11 +3,12 @@ import useRecipeStore from "./components/recipeStore";
 import AddRecipeForm from "./components/AddRecipeForm";
 import RecipeList from "./components/RecipeList";
 import RecipeDetails from "./components/RecipeDetails";
-import {BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import DeleteRecipe from "./components/DeleteRecipeButton";
 import EditRecipeForm from "./components/EditRecipeForm";
 import FavoritesList from "./components/FavoritesList";
 import Navbar from "./components/Navbar";
+import SearchBar from "./components/SearchBar";
+import { Routes, Route } from "react-router-dom";
 
 
 
@@ -15,10 +16,12 @@ function App(){
 
  return (
 <>
+<SearchBar />
+<DeleteRecipe />
 <h2 style={{marginLeft:"100px"}}>Recipes</h2>
 
 {/* Router */}
-  <Router>
+  <div>
     <Navbar/>
   <Routes>
     <Route path="/" element = {<RecipeList/>} />
@@ -27,7 +30,7 @@ function App(){
     <Route path="/add-recipe"  element = {<AddRecipeForm/>} />
     <Route path="/favourite"  element = {<FavoritesList/>} />
  </Routes>
-  </Router>
+  </div>
  
     
 

@@ -1,11 +1,13 @@
 import {create} from 'zustand'
 
-const useRecipeStore = create(set => ({
+const useRecipeStore = create((set, get) => ({
   recipes: [],
+  searchTerm: '',
   favourite: [],
+    
 
   addRecipe: (newRecipe) => 
-    set(state => ({ recipes: [...state.recipes, newRecipe] })),
+    set(state => ({ recipes: [...state.recipes, {newRecipe}] })),
   setRecipes: (recipes) => 
     set({ recipes }),
 
@@ -17,14 +19,27 @@ const useRecipeStore = create(set => ({
        recipe.id === updatedRecipe.id ? {...recipe, ...updatedRecipe}: recipe)})),
 
   
+  setSearchTerm: (term) => set({ searchTerm: term }),
   
-       AddFavourite: (recipe) => 
+  getFilteredRecipes: () => {
+    const { recipes, searchTerm } = get();
+    return searchTerm ? recipes.filter((recipe) =>
+      recipe.title.toLowerCase().includes(searchTerm.toLowerCase())
+    )
+    
+    :recipes
+  },
+
+  
+  addFavourite: (recipe) => 
     set((state)=> {
     if(state.favourite.some((fav) => fav.id === recipe.id)){
-  return state;
+  return {favourite: state.favourite};
     }
   return {favourite: [...state.favourite, recipe]}
 }),
+
+
 }));
 
 
