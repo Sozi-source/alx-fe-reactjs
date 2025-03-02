@@ -5,6 +5,7 @@ import RecipeList from "./components/RecipeList";
 import RecipeDetails from "./components/RecipeDetails";
 import { Routes, Route } from "react-router-dom";
 import DeleteRecipe from "./components/DeleteRecipeButton";
+import EditRecipeForm from "./components/EditRecipeForm";
 
 
 
@@ -20,6 +21,7 @@ return (
 <AddRecipeForm /> <br />
 <RecipeDetails />
 <DeleteRecipe/>
+<EditRecipeForm />
 
 
 {/* Router */}

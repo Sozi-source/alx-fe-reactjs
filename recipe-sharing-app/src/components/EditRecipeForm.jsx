@@ -5,10 +5,13 @@ import useRecipeStore from "./recipeStore";
 const EditRecipeForm = () => {
   const { id } = useParams(); // Get recipe ID from URL
   const navigate = useNavigate(); // Navigation after editing
-  const { recipes, updateRecipe } = useRecipeStore();
+  
+
+  const recipes = useRecipeStore((state) => state.recipes);
+  const updateRecipe = useRecipeStore((state) => state.updateRecipe);
 
   // Find the recipe to edit
-  const recipeToEdit = recipes.find((recipe) => recipe.id === parseInt(id));
+  const recipeToEdit = recipes.find((recipe) => recipe.id === parseInt(id, 10));
 
   // Initialize state with existing values
   const [title, setTitle] = useState(recipeToEdit?.title || "");
@@ -26,10 +29,6 @@ const EditRecipeForm = () => {
     updateRecipe({ id: parseInt(id), title, description });
     navigate("/"); // Redirect to home or recipe list after updating
   };
-
-  if (!recipeToEdit) {
-    return <h2>Recipe not found!</h2>;
-  }
 
   return (
     <div>
