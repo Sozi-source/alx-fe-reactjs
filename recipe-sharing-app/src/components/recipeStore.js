@@ -42,13 +42,13 @@ const useRecipeStore = create((set, get) => ({
 
 removeFavourite: (id) =>
   set((state) => {
-    const updatedFavourites = state.favourites.filter((fav) => fav.id !== id);
-    return { favourites: updatedFavourites };
+    const updatedFavorites = state.favourites.filter((fav) => fav.id !== id);
+    return { favorites: updatedFavorites };
   }),
  
   generateRecommendations: () => set((state) => {
-    const favouriteIds = state.favourites.map(fav => fav.id);
-    const recommended = state.recipes.filter(recipe => favouriteIds.includes(recipe.id));
+    const favoriteIds = state.favorites.map(fav => fav.id);
+    const recommended = state.recipes.filter(recipe => favoriteIds.includes(recipe.id));
     return { recommendations: recommended };
   }),
 
