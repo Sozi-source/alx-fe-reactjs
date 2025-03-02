@@ -3,11 +3,11 @@ import {create} from 'zustand'
 const useRecipeStore = create((set, get) => ({
   recipes: [],
   searchTerm: '',
-  favourite: [],
+  favourites: [],
     
 
   addRecipe: (newRecipe) => 
-    set(state => ({ recipes: [...state.recipes, {newRecipe}] })),
+    set(state => ({ recipes: [...state.recipes, newRecipe] })),
   setRecipes: (recipes) => 
     set({ recipes }),
 
@@ -31,13 +31,19 @@ const useRecipeStore = create((set, get) => ({
   },
 
   
-  addFavourite: (recipe) => 
+  addFavourites: (recipe) => 
     set((state)=> {
-    if(state.favourite.some((fav) => fav.id === recipe.id)){
-  return {favourite: state.favourite};
+    if(state.favourites.some((fav) => fav.id === recipe.id)){
+  return {favourites: state.favourites};
     }
-  return {favourite: [...state.favourite, recipe]}
+  return {favourites: [...state.favourites, recipe]}
 }),
+
+removeFavourite: (id) =>
+  set((state) => {
+    const updatedFavourites = state.favourites.filter((fav) => fav.id !== id);
+    return { favourites: updatedFavourites };
+  }),
 
 
 }));

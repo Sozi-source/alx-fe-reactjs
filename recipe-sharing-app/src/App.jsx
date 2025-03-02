@@ -18,16 +18,12 @@ function App(){
 <>
 <SearchBar />
 <DeleteRecipe />
-<h2 style={{marginLeft:"100px"}}>Recipes</h2>
-
 {/* Router */}
   <div>
     <Navbar/>
   <Routes>
-    <Route path="/" element = {<RecipeList/>} />
-    <Route path="/recipe"  element = {<RecipeDetails/>} />
-    <Route path="/edit/:id"  element = {<EditRecipeForm/>} />
     <Route path="/add-recipe"  element = {<AddRecipeForm/>} />
+    <Route path="/" element = {<RecipeList/>} />
     <Route path="/favourite"  element = {<FavoritesList/>} />
  </Routes>
   </div>
