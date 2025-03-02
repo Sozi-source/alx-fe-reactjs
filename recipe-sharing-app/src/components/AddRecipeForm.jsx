@@ -33,21 +33,7 @@ const AddRecipeForm = () => {
       <button type="submit" style={{border: "solid brown", marginLeft:"100px"}}>Add Recipe</button>
     </form>
 
-    {/* Delete recipes */}
-    <h2>Recipes</h2>
-    <ul>
-      {recipes.map((recipe)=> (
-        <li key={recipe.id}>
-          {recipe.title}- {recipe.description}
-        
-        <button onClick={() => deleteRecipe(recipe.id)}>Delete</button>
-        
-        </li>
-
-
-      ))}
-
-    </ul>
+  
 
     </>
   );
