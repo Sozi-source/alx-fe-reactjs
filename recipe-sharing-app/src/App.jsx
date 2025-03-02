@@ -9,6 +9,7 @@ import FavoritesList from "./components/FavoritesList";
 import Navbar from "./components/Navbar";
 import SearchBar from "./components/SearchBar";
 import { Routes, Route } from "react-router-dom";
+import Recommended from "./components/RecommendationsList";
 
 
 
@@ -25,6 +26,7 @@ function App(){
     <Route path="/add-recipe"  element = {<AddRecipeForm/>} />
     <Route path="/" element = {<RecipeList/>} />
     <Route path="/favourite"  element = {<FavoritesList/>} />
+    <Route path="/recommended"  element = {<Recommended/>} />
  </Routes>
   </div>
  

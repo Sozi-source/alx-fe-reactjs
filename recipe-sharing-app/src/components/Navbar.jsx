@@ -8,7 +8,8 @@ const Navbar = ()=> {
             <ul>
                 <li><Link to= "/add-recipe">Add Recipe</Link></li>
                 <li><Link to= "/">Recipes</Link></li>
-                <li><Link to= "/favourite">Favourites</Link></li>       
+                <li><Link to= "/favourite">Favourites</Link></li>   
+                <li><Link to= "/recommended">Recommended Recipes</Link></li>    
             </ul>
         </nav>
 
