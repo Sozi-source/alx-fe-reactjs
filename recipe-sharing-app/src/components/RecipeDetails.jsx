@@ -1,10 +1,15 @@
 // RecipeDetails component
-import {useRecipeStore }from "./recipeStore";
+import { Link } from "react-router-dom";
+import useRecipeStore from "./recipeStore";
+import { useParams } from "react-router-dom";
 
-const RecipeDetails = ({ recipeId }) => {
+const RecipeDetails = () => {
+  const {id} = useParams()
   const recipe = useRecipeStore(state =>
-    state.recipes.find(recipe => recipe.id === recipeId)
+    state.recipes.find(recipe => recipe.id === parseInt(id))
   );
+  if(!recipe) return <h2>Recipe not found</h2>
+
 
   return (
     <div>
@@ -12,8 +17,9 @@ const RecipeDetails = ({ recipeId }) => {
       <p>{recipe.description}</p>
       {/* Render EditRecipeForm and DeleteRecipeButton here */}
 
-    {/* RECIPE EDIT FORM */}
-   <button onClick={()=> updatedRecipe(recipe.id)}>Edit</button>
+    <Link to = {`/edit/${recipe.id}`}  >
+    <button>Edit</button>
+    </Link>
 
     </div>
   );

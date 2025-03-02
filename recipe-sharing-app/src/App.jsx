@@ -3,6 +3,8 @@ import useRecipeStore from "./components/recipeStore";
 import AddRecipeForm from "./components/AddRecipeForm";
 import RecipeList from "./components/RecipeList";
 import RecipeDetails from "./components/RecipeDetails";
+import EditRecipeForm from "./components/EditRecipeForm";
+import { Routes, Route } from "react-router-dom";
 
 
 function App(){
@@ -16,6 +18,16 @@ return (
 
 <AddRecipeForm /> <br />
 <RecipeDetails />
+
+{/* Router */}
+
+ <Routes>
+    <Route path="/" element = {<RecipeList/>} />
+    <Route path="/recipe/: id"  element = {<RecipeDetails/>} />
+    <Route path="/edit/: id"  element = {<RecipeDetails/>} />
+ 
+ </Routes>
+    
 
 </>
 )}
