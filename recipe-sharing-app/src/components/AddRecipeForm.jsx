@@ -3,7 +3,7 @@ import { useState } from 'react';
 import useRecipeStore from './recipeStore';
 
 const AddRecipeForm = () => {
-  const addRecipe = useRecipeStore(state => state.addRecipe);
+  const {recipes, addRecipe, deleteRecipe, updateRecipe} = useRecipeStore();
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
 
@@ -14,21 +14,43 @@ const AddRecipeForm = () => {
     setDescription('');
   };
 
+
   return (
+
+    <>
     <form onSubmit={handleSubmit}>
-      <input
+      <input 
         type="text"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
-        placeholder="Title"
-      />
-      <textarea
+        placeholder="Title" style={{marginLeft: "100px", border: "solid black", height:"25px", width: "100%", fontWeight:"bolder"}}
+      /> <br/>
+      <textarea style={{marginTop: "20px", marginLeft:"100px", width: "100%", border: "solid greenyellow"}}
         value={description}
         onChange={(e) => setDescription(e.target.value)}
         placeholder="Description"
-      />
-      <button type="submit">Add Recipe</button>
+      /> <br/>
+      <button type="submit" style={{border: "solid brown", marginLeft:"100px"}}>Add Recipe</button>
     </form>
+
+    {/* Delete recipes */}
+    <h2>Recipes</h2>
+    <ul>
+      {recipes.map((recipe)=> (
+        <li key={recipe.id}>
+          {recipe.title}- {recipe.description}
+        
+        <button onClick={() => deleteRecipe(recipe.id)}>Delete</button>
+        
+        </li>
+
+
+      ))}
+
+    </ul>
+
+    </>
   );
+    
 };
 export default AddRecipeForm;

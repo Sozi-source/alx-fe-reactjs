@@ -1,7 +1,8 @@
-
+import "./App.css"
 import useRecipeStore from "./components/recipeStore";
 import AddRecipeForm from "./components/AddRecipeForm";
 import RecipeList from "./components/RecipeList";
+import RecipeDetails from "./components/RecipeDetails";
 
 
 function App(){
@@ -11,10 +12,10 @@ function App(){
 
 return (
 <>
-<h2>Recipes</h2>
+<h2 style={{marginLeft:"100px"}}>Recipes</h2>
 
-<AddRecipeForm />
-<RecipeList />
+<AddRecipeForm /> <br />
+<RecipeDetails />
 
 </>
 )}
