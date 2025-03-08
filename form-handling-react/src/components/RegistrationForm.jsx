@@ -12,9 +12,9 @@ const [errors, setErrors] = useState({})
 const handleChange = (e)=>{
 const {name, value} = e.target
 
-if(name === "username") setUserName(value);
-if(name === "email") setEmail(value);
-if(name === "password") setPassword(value);
+if (name === "username") setUserName(value);
+if (name === "email") setEmail(value);
+if (name === "password") setPassword(value);
 
 }
 
@@ -24,9 +24,9 @@ const handleSubmit =(e)=>{
 
 // validation logics
 const validationError = {}
-if(!username) validationError.username = "User name is required"
-if(!email) validationError.email = "Email is required"
-if(!password) validationError.password = "Password is required"
+if (!username) validationError.username = "User name is required"
+if (!email) validationError.email = "Email is required"
+if (!password) validationError.password = "Password is required"
 
 if(Object.keys(validationError).length > 0){
     setErrors(validationError);
