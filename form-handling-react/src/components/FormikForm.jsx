@@ -1,5 +1,6 @@
 import { Formik, Form, Field, ErrorMessage} from "formik";
 import * as Yup from 'yup';
+import React from "react";
 
 const validationSchema = Yup.object({
     username: Yup.string().required('Name is required'),
@@ -13,25 +14,29 @@ return(
     <Formik
 initialValues={{username: '', email:'', password:''}}
 validationSchema={validationSchema}
-onSubmit={(values)=>{
+onSubmit={(values, {resetForm})=>{
     console.log(values)
+    resetForm()
 }}
 >
 {()=>(
     <Form>
        <div>
+        <label htmlFor="username">User Name</label>
        <Field type ="text" name="username" />
-       <ErrorMessage name='username' component='div' />
+       <ErrorMessage name= "username" component="div" />
        </div>
 
        <div>
+        <label htmlFor="email">Email</label>
        <Field type ="text" name="email" />
-       <ErrorMessage name='email' component='div'  />
+       <ErrorMessage name="email" component="div"  />
        </div>
 
        <div>
+        <label htmlFor="password">Password</label>
        <Field type ="password" name="password" />
-       <ErrorMessage name='password' component='div'  />
+       <ErrorMessage name="password" component="div" />
        </div>
 
        <div>
