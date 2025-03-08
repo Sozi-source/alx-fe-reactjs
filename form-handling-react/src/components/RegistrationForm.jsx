@@ -1,9 +1,11 @@
 import { useState } from "react";
 
-const registrationForm = ()=>{
+const RegistrationForm = ()=>{
 
 const initialState = {username: '', email:'', password:''}
-const[data, setData] = useState(initialState)
+const [username, setUserName] = (initialState.username);
+const [email, setEmail] = (initialState.email);
+const [password, setPassword] = (initialState.password);
 
 
 const handleChange = (e)=>{
@@ -13,24 +15,29 @@ setData((prevState)=>({...prevState, [name]: value}))
 
 const handleSubmit =(e)=>{
     e.preventDefault();
-    console.log(data)
-    setData(initialState)
+    console.log(username, email, password)
+    
+    // reset form
+    setUserName("");
+    setEmail("");
+    setPassword("");
+
 };
 return(
     <form onSubmit={handleSubmit}>
         <div>
-            <label htmlFor="name">User Name</label>
-            <input type="text" name="username" value={data.username} className="username" onChange={handleChange} />
+            <label htmlFor="username">User Name</label>
+            <input type="text" name="username" value={username} className="username" onChange={handleChange} />
         </div>
 
         <div>
             <label htmlFor="email">Email</label>
-            <input type="text" name="email" value={data.email} className="email" onChange={handleChange} />
+            <input type="text" name="email" value={email} className="email" onChange={handleChange} />
         </div>
 
         <div>
             <label htmlFor="password">Password</label>
-            <input type="text" name="password" value={data.password} className="password" onChange={handleChange} />
+            <input type="password" name="password" value={password} className="password" onChange={handleChange} />
         </div>
 
         <div>
@@ -39,4 +46,4 @@ return(
     </form>
 )}
 
-export default registrationForm;
+export default RegistrationForm;
