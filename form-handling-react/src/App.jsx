@@ -1,5 +1,5 @@
 import RegistrationForm from "./components/RegistrationForm";
-import 
+import FormikForm from "./components/formikForm";
 
 
 const App =()=>{
