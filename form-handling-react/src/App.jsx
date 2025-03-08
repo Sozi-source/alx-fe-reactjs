@@ -5,7 +5,10 @@ import FormikForm from "./components/FormikForm.jsx";
 const App =()=>{
 
     return(
-    <FormikForm />
+    <>
+    {/* <FormikForm /> */}
+    <RegistrationForm />
+    </>
         
     )
 }
