@@ -1,13 +1,13 @@
 import RegistrationForm from "./components/RegistrationForm";
-import FormikForm from "./components/FormikForm.jsx";
+import 
 
 
 const App =()=>{
 
     return(
     <>
-    {/* <FormikForm /> */}
-    <RegistrationForm />
+    <FormikForm />
+    {/* <RegistrationForm /> */}
     </>
         
     )
