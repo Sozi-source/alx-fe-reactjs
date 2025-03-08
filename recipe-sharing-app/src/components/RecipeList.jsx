@@ -4,7 +4,8 @@ import { Link } from "react-router-dom";
 
 const RecipeList = () => {
   const recipes = useRecipeStore(state => state.recipes);
-  const addFavourites = useRecipeStore ((state)=>state.addFavourites)
+  const addFavorite = useRecipeStore ((state)=>state.addFavorites)
+  const deleteRecipe = useRecipeStore ((state) => state.deleteRecipe)
   return (
     <div style={{marginLeft: "100px"}}>
       {recipes.map(recipe => (
@@ -12,7 +13,12 @@ const RecipeList = () => {
           <h3> <Link to = {`/recipe/${recipe.id}`}>{recipe.title}</Link> </h3>
           <p>{recipe.description}</p>
 
-          <button onClick={()=> addFavourites(recipe)}>Add to Favourite ❤️</button>
+          {/* Add to favourite */}
+          <button onClick={()=> addFavorite(recipe)}>Add to Favorite ❤️</button>
+
+
+          {/* delete button */}
+          <button onClick={() => deleteRecipe(recipe.id)}> Delete ❌ </button>
         </div>
       ))}
     </div>

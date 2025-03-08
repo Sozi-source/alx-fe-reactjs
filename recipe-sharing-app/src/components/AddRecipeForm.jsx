@@ -23,14 +23,14 @@ const AddRecipeForm = () => {
         type="text"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
-        placeholder="Title" style={{marginLeft: "100px", border: "solid black", height:"25px", width: "100%", fontWeight:"bolder"}}
+        placeholder="Title" style={{marginLeft: "100px", border: "solid black", height:"35px", width: "25%", fontWeight:"bolder"}}
       /> <br/>
-      <textarea style={{marginTop: "20px", marginLeft:"100px", width: "100%", border: "solid greenyellow"}}
+      <textarea style={{marginTop: "20px", marginLeft:"100px", width: "25%", border: "solid greenyellow"}}
         value={description}
         onChange={(e) => setDescription(e.target.value)}
         placeholder="Description"
       /> <br/>
-      <button type="submit" style={{border: "solid brown", marginLeft:"100px"}}>Add Recipe</button>
+      <button type="submit" style={{border: "solid brown", marginLeft:"100px", fontSize: "20px", marginTop: "15px"}}>Add Recipe</button>
     </form>
 
   
