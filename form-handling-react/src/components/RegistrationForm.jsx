@@ -10,7 +10,11 @@ const [password, setPassword] = (initialState.password);
 
 const handleChange = (e)=>{
 const {name, value} = e.target
-setData((prevState)=>({...prevState, [name]: value}))
+
+if(name === "username")setUserName(value);
+if(name === "email")setEmail(value);
+if(name === "password")setPassword(value);
+
 }
 
 const handleSubmit =(e)=>{
