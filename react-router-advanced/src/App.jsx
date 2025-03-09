@@ -7,6 +7,8 @@ import Profile from "./components/Profile";
 import ProfileDetails from "./Pages/Profile/ProfileDetails";
 import ProfileSettings from "./Pages/Profile/ProfileSettings";
 import BlogPost from "./components/BlogPost";
+import ProtectedRoute from "./components/ProtectedRoute";
+import LoginPage from "./components/LoginPage";
 
 
 
@@ -18,10 +20,12 @@ function App(){
     <Router>
       <NavBar />
       <Routes>
+
         <Route path="/" element={<Home />} />
+        <Route path="/login" element={<LoginPage />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/profile" element={<Profile/>} >
+        <Route path="/profile" element={<ProtectedRoute><Profile/></ProtectedRoute>} >
             <Route path="profiledetails" element ={<ProfileDetails/>} />
             <Route path="profilesettings" element ={<ProfileSettings/>} />
         </Route>
