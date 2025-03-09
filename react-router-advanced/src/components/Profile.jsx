@@ -1,4 +1,9 @@
 import { Link, Outlet } from "react-router-dom";
+import {Routes, Route } from "react-router-dom";
+import ProfileDetails from "../Pages/Profile/ProfileDetails";
+import ProfileSettings from "../Pages/Profile/ProfileSettings";
+
+
 
 function Profile(){
 
@@ -12,6 +17,12 @@ function Profile(){
             </ul>
         </nav>
         
+        {/* Routes */}
+        <Routes>
+            <Route path="profiledetails" element ={<ProfileDetails />} />
+            <Route path="profilesettings" element ={<ProfileSettings />} />
+        </Routes>
+
         <Outlet />
         </div>
     )
