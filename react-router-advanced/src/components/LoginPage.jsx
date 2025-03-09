@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom";
+import useAuth, {login} from "../UseAuth";
 
 
 
@@ -8,10 +9,8 @@ function LoginPage(){
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [isAuthenticated, setIsauthenticated] = useState(
-        localStorage.getItem("isAuthenticated")=== "true")
-    
-        const navigate = useNavigate()
+    const isAuthenticated = useAuth();
+    const navigate = useNavigate()
 
 useEffect(()=>{
     if (isAuthenticated){
@@ -22,12 +21,11 @@ useEffect(()=>{
 
 
 function handleLogin(e){
-e.preventDefault()
+e.preventDefault();
 
 // Authenticating login
 if (email==="wilfred@gmail.com" && password==="12345"){
-    localStorage.setItem("isAuthenticated", "true")
-    setIsauthenticated(true);
+    login();
     navigate("/profile")
 }
     else{
