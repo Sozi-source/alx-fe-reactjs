@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom";
-import useAuth from "../UseAuth";
-import { login } from "../UseAuth";
+import useAuth from "./useAuth";
+import { login } from "./useAuth";
 
 
 
