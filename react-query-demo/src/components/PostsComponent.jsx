@@ -11,24 +11,29 @@ return res.json();
 
 function PostComponent(){
 
-    const{data, error, isLoading}= useQuery({
+    const{data, isError, isLoading, refetch}= useQuery({
         queryKey: ["posts"],
-        queryFn: fetchPost
+        queryFn: fetchPost,
+        staleTime: 5000,
+        
     });
 
     //    Handling loading state
-    if (error) return <div>Error fetching posts:{error.message}</div>
+    if (isError) return <div>Error fetching posts:{isError.message}</div>
     if (isLoading) return <div>Loading Posts...</div>
 
     // Render fetched posts    
 
     return(
        <div>
+        <h1>POSTS</h1>
+         {/* Manual refetch button */}
+         <button onClick={()=>refetch()}>Refetch Post</button>
          {data.map((posts)=>(
             <p key={posts.id}> {posts.title} </p>
         ))}
 
-       </div>
+              </div>
         
     )
 }
