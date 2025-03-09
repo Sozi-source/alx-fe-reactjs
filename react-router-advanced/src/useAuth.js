@@ -7,10 +7,17 @@ const[isAuthenticated, setIsAuthenticated] = useState(
 );
 
 useEffect(()=>{
-    setIsAuthenticated(localStorage.getItem(isAuthenticated)==="true");
+    setIsAuthenticated(localStorage.getItem("isAuthenticated")==="true");
+
 }, []);
 
 return isAuthenticated;
+};
+// Login function
+
+export const login = () => {
+    localStorage.setItem("isAuthenticated", "true");
+    window.dispatchEvent(new Event("storage")); 
 };
 
 export default useAuth;

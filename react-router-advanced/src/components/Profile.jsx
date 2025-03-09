@@ -3,13 +3,9 @@ import {Routes, Route } from "react-router-dom";
 import ProfileDetails from "../Pages/Profile/ProfileDetails";
 import ProfileSettings from "../Pages/Profile/ProfileSettings";
 import React from "react";
-import { useNavigate } from "react-router-dom";
+
 
 function Profile(){
-
-const navigate = useNavigate();
- 
-    
     return(
         <div>
             <h1>PROFILE PAGE</h1>

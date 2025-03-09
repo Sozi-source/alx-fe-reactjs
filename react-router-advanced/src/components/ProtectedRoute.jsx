@@ -1,10 +1,8 @@
-import { Navigate, Outlet } from "react-router-dom"
-import useAuth from "../UseAuth";
+import { Navigate, Outlet } from "react-router-dom";
 
-function ProtectedRoute(){
-
-    const isAuthenticated = useAuth();
-
-    return isAuthenticated ? <Outlet/> : <Navigate to= "/login" />
+function ProtectedRoute() {
+    const isAuthenticated = localStorage.getItem("isAuthenticated") === "true";
+    return isAuthenticated ? <Outlet/>: <Navigate to="/login" />;
 }
+
 export default ProtectedRoute;

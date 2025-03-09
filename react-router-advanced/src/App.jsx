@@ -11,8 +11,6 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import LoginPage from "./components/LoginPage";
 
 
-
-
 function App(){
 
 
@@ -25,11 +23,11 @@ function App(){
         <Route path="/login" element={<LoginPage />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/profile" element={<ProtectedRoute><Profile/></ProtectedRoute>} >
-            <Route path="profiledetails" element ={<ProfileDetails/>} />
-            <Route path="profilesettings" element ={<ProfileSettings/>} />
+        <Route path="/profile" element= {<ProtectedRoute> <Profile /> </ProtectedRoute>} >
+              <Route path="profiledetails" element={<ProfileDetails />} />
+              <Route path="profilesettings" element={<ProfileSettings />} />
         </Route>
-
+        
         {/* Dynamic Routes for Blog Post */}
         <Route path="/blog/:id" element ={<BlogPost />} />
       </Routes>

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom";
-import useAuth, {login} from "../UseAuth";
+import useAuth from "../UseAuth";
+import { login } from "../UseAuth";
 
 
 
@@ -18,8 +19,6 @@ useEffect(()=>{
             }
         }, [isAuthenticated, navigate])
         
-
-
 function handleLogin(e){
 e.preventDefault();
 
@@ -54,6 +53,4 @@ if (email==="wilfred@gmail.com" && password==="12345"){
         </>
     )
 }
-
-
 export default LoginPage;
