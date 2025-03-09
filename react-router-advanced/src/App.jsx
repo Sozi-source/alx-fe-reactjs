@@ -6,6 +6,7 @@ import NavBar from "./components/NavBar";
 import Profile from "./components/Profile";
 import ProfileDetails from "./Pages/Profile/ProfileDetails";
 import ProfileSettings from "./Pages/Profile/ProfileSettings";
+import BlogPost from "./components/BlogPost";
 
 
 
@@ -24,6 +25,9 @@ function App(){
             <Route path="profiledetails" element ={<ProfileDetails/>} />
             <Route path="profilesettings" element ={<ProfileSettings/>} />
         </Route>
+
+        {/* Dynamic Routes for Blog Post */}
+        <Route path="/blog/:id" element ={<BlogPost />} />
       </Routes>
     </Router>
   )
