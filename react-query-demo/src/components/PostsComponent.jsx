@@ -14,8 +14,7 @@ function PostComponent(){
     const{data, isError,error, isLoading, refetch}= useQuery({
         queryKey: ["posts"],
         queryFn: fetchPosts,
-        staleTime: 5000,
-        
+        cacheTime: 5000,
     });
 
     //    Handling loading state
