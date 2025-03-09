@@ -11,7 +11,7 @@ return res.json();
 
 function PostComponent(){
 
-    const{data, isError,error, isLoading, refetch, isFetching}= useQuery({
+    const{data, isError,error, isLoading, refetch}= useQuery({
         queryKey: ["posts"],
         queryFn: fetchPosts,
         staleTime:10000,
