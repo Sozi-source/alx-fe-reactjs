@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 
-const fetchPost = async()=>{
+const fetchPosts = async()=>{
 const res = await fetch("https://jsonplaceholder.typicode.com/posts")
 if (!res.ok) throw new Error("Failed to fetch posts")
 
@@ -13,7 +13,7 @@ function PostComponent(){
 
     const{data, isError,error, isLoading, refetch}= useQuery({
         queryKey: ["posts"],
-        queryFn: fetchPost,
+        queryFn: fetchPosts,
         staleTime: 5000,
         
     });
