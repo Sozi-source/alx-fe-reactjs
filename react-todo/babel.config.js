@@ -1,7 +1,7 @@
 module.exports = {
     presets: [
-      '@babel/preset-env',  // Compiles modern JS to older JavaScript
-      '@babel/preset-react' // Compiles JSX to JavaScript
-    ]
+      '@babel/preset-env',  // Converts modern JS syntax to backward-compatible code
+      '@babel/preset-react' // Converts JSX to JS
+    ],
   };
   
