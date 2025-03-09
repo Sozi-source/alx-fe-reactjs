@@ -11,10 +11,13 @@ return res.json();
 
 function PostComponent(){
 
-    const{data, isError,error, isLoading, refetch}= useQuery({
+    const{data, isError,error, isLoading, refetch, isFetching}= useQuery({
         queryKey: ["posts"],
         queryFn: fetchPosts,
-        cacheTime: 5000,
+        staleTime:10000,
+        cacheTime: 50000,
+        refetchOnWindowFocus: false,
+        keepPreviousData: true,
     });
 
     //    Handling loading state
