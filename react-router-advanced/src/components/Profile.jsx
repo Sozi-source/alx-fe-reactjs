@@ -1,23 +1,18 @@
-import {Routes, Route } from "react-router-dom";
-import ProfileDetails from "../Pages/Profile/ProfileDetails";
-import ProfileSettings from "../Pages/Profile/ProfileSettings";
-
-
+import { Link, Outlet } from "react-router-dom";
 
 function Profile(){
 
     return(
         <div>
             <h1>PROFILE PAGE</h1>
-
-
-    // Routes to child components
-        <Routes>
-            <Route path="/profiledetails" Component={ProfileDetails} />
-            <Route path="/profilesettings" Component={ProfileSettings} />
-
-        </Routes>
-
+        <nav>
+            <ul>
+                <li><Link to= "profiledetails">Profile Details</Link></li>
+                <li><Link to= "profilesettings">Profile Settings</Link></li>
+            </ul>
+        </nav>
+        
+        <Outlet />
         </div>
     )
 }
