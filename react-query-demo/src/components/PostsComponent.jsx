@@ -11,7 +11,7 @@ return res.json();
 
 function PostComponent(){
 
-    const{data, isError, isLoading, refetch}= useQuery({
+    const{data, isError,error, isLoading, refetch}= useQuery({
         queryKey: ["posts"],
         queryFn: fetchPost,
         staleTime: 5000,
@@ -19,7 +19,7 @@ function PostComponent(){
     });
 
     //    Handling loading state
-    if (isError) return <div>Error fetching posts:{isError.message}</div>
+    if (isError) return <div>Error fetching posts:{error.message}</div>
     if (isLoading) return <div>Loading Posts...</div>
 
     // Render fetched posts    
