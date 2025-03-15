@@ -1,8 +1,7 @@
-export default {
-    testEnvironment: 'jest-environment-jsdom',
+  export default {
+    testEnvironment: "jsdom",
     transform: {
-      '^.+\\.mjs$': 'babel-jest',
+      "^.+\\.(js|jsx|ts|tsx)$": "babel-jest"
     },
-    extensionsToTreatAsEsm: ['.jsx'],
+    extensionsToTreatAsEsm: [".ts", ".tsx", ".js", ".jsx"]
   };
-  
