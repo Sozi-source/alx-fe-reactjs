@@ -3,5 +3,5 @@
     transform: {
       "^.+\\.(js|jsx|ts|tsx)$": "babel-jest"
     },
-    extensionsToTreatAsEsm: [".ts", ".tsx", ".js", ".jsx"]
+    extensionsToTreatAsEsm: [".ts", ".tsx", ".jsx"]
   };
