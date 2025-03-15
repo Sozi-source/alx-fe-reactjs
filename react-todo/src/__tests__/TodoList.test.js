@@ -42,15 +42,9 @@ describe("TodoList Component", () => {
   test("deletes a todo", async () => {
     render(<TodoList />);
   
-    const todoItem = screen.getByText("Learn React");
-    const deleteButton = todoItem.nextSibling;
-  
-    console.log("Before clicking delete:", screen.debug()); // Log full DOM
-  
+    const deleteButton = screen.getByText("Learn React").nextSibling;
     fireEvent.click(deleteButton);
   
-    console.log("After clicking delete:", screen.debug()); // Check if re-rendered
-  
-    await waitForElementToBeRemoved(() => screen.getByText("Learn React"));
+    await waitForElementToBeRemoved(() => screen.queryByText("Learn React"));
   });
 });
