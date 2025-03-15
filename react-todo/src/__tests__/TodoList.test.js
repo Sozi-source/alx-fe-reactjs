@@ -1,5 +1,5 @@
 import React from "react";
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, screen, fireEvent,waitForElementToBeRemoved } from "@testing-library/react";
 import TodoList from "../components/TodoList";
 import "@testing-library/jest-dom";
 
@@ -39,14 +39,15 @@ describe("TodoList Component", () => {
     expect(todoItem).not.toHaveStyle("text-decoration: line-through");
   });
 
-  test("deletes a todo", () => {
+  test("deletes a todo", async () => {
     render(<TodoList />);
-
+  
     const todoItem = screen.getByText("Learn React");
-    const deleteButton = todoItem.nextSibling; // The delete button next to the todo
-
+    const deleteButton = todoItem.nextSibling; // Ensure this selects the correct delete button
+  
     fireEvent.click(deleteButton);
-
-    expect(todoItem).not.toBeInTheDocument();
+  
+    // ✅ Wait for the element to be removed from the DOM
+    await waitForElementToBeRemoved(() => screen.getByText("Learn React"));
   });
 });
