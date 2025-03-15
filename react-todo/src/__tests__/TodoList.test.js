@@ -1,5 +1,5 @@
 import React from "react";
-import { render, screen, fireEvent,waitForElementToBeRemoved } from "@testing-library/react";
+import { render, screen, fireEvent,waitFor } from "@testing-library/react";
 import TodoList from "../components/TodoList";
 import "@testing-library/jest-dom";
 
@@ -45,6 +45,6 @@ describe("TodoList Component", () => {
     const deleteButton = screen.getByText("Learn React").nextSibling;
     fireEvent.click(deleteButton);
   
-    await waitForElementToBeRemoved(() => screen.queryByText("Learn React"));
+    await waitFor(() => screen.queryByText("Learn React"));
   });
 });
