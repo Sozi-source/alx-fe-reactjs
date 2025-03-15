@@ -43,11 +43,14 @@ describe("TodoList Component", () => {
     render(<TodoList />);
   
     const todoItem = screen.getByText("Learn React");
-    const deleteButton = todoItem.nextSibling; // Ensure this selects the correct delete button
+    const deleteButton = todoItem.nextSibling;
+  
+    console.log("Before clicking delete:", screen.debug()); // Log full DOM
   
     fireEvent.click(deleteButton);
   
-    // ✅ Wait for the element to be removed from the DOM
+    console.log("After clicking delete:", screen.debug()); // Check if re-rendered
+  
     await waitForElementToBeRemoved(() => screen.getByText("Learn React"));
   });
 });
