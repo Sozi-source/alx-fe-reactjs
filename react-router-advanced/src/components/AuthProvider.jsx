@@ -1,39 +1,23 @@
-import { createContext, useContext, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { create } from "zustand";
 
-const AuthContext = createContext(null)
+const AuthStore = create((set)=>({
+    user: JSON.parse(localStorage.getItem("userData")) || {},
 
+    login: (email, password)=>{
 
-
-export const AuthProvider = ({children})=>{
-    const[user, setUser] = useState(null)
-
-    const navigate = useNavigate()
-
-
-    useEffect(()=>{
-        const storedUser = localStorage.getItem("user");
-         if (storedUser){
-            setUser(JSON.parse(storedUser))
-         }
-    }, [])
-
-    const login = (userData)=>{
-        setUser(userData);
-        localStorage.setItem("user", JSON.stringify(userData))
-        navigate("/profile")
+        const validUser ={
+            email:"wilfred@gmail.com",
+            password: "@2025"
+        };
+        
+        if(email===validUser.email && password===validUser.password){
+            set(()=>({user: validUser}));
+            localStorage.setItem("userData", JSON.stringify(validUser));
+            return true;
+        }
+        else return false;
     }
+
     
-    return (
-        <AuthContext.Provider value={{user, login}}>
-        {children}
-</AuthContext.Provider>
-    );
-};
-
-export const useAuth = ()=>{
-    return useContext(AuthProvider)
-};
-
-export default AuthProvider;
-
+}))
+export default AuthStore;

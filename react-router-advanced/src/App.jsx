@@ -24,8 +24,6 @@ function App(){
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/profile" element= {<ProtectedRoute> <Profile /> </ProtectedRoute>} >
-              <Route path="profiledetails" element={<ProfileDetails />} />
-              <Route path="profilesettings" element={<ProfileSettings />} />
         </Route>
         
         {/* Dynamic Routes for Blog Post */}

@@ -8,7 +8,6 @@ function Home(){
         <div>
         <Link to="/login" className="login">Login</Link>
         </div>
-       <button className="sign-up">Sign Up</button>
         </div>
     )
 }

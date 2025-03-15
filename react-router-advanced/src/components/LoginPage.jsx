@@ -1,39 +1,32 @@
-import { useEffect, useState } from "react"
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import useAuth from "./useAuth";
-import { login } from "./useAuth";
+import AuthStore from "./AuthProvider";
 
-
-
-
-function LoginPage(){
-
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const isAuthenticated = useAuth();
+function Login(){
+    const [email, setEmail] =useState("");
+    const[password, setPassword] =useState("");
+    const[error, setError]= useState("");
+    const login =AuthStore((state)=>state.login)
     const navigate = useNavigate()
 
-useEffect(()=>{
-    if (isAuthenticated){
-        navigate("/profile")
-            }
-        }, [isAuthenticated, navigate])
-        
-function handleLogin(e){
-e.preventDefault();
+    const handleLogin =(e)=>{
+    e.preventDefault()
 
-// Authenticating login
-if (email==="wilfred@gmail.com" && password==="12345"){
-    login();
-    navigate("/profile")
-}
-    else{
-        alert("invalid credential, try again")
-    }
+    const success = login(email, password);
+    if(success){
+        navigate("/profile")
+    // Reset form
     setEmail("");
     setPassword("");
-}
- 
+    }
+    else{
+        setError("Invalid Credentials")
+    }
+    // store userdata to local Storage
+    const userData ={email, password}
+    localStorage.setItem("userData", JSON.stringify(userData))
+    }
+
     return(
         <>
         <h2>Login Page</h2>
@@ -48,9 +41,13 @@ if (email==="wilfred@gmail.com" && password==="12345"){
              onChange={(e)=>setPassword(e.target.value)} autoComplete="current-password"/><br />
 
             <button type="submit" className="login-button">Login</button>
+            {error && <p style={{color:"red"}}>{error}</p> }
         </form>
         
         </>
     )
 }
-export default LoginPage;
+export default Login;
+
+ 
+    
