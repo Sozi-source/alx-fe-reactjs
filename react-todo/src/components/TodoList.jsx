@@ -18,12 +18,18 @@ function TodoList() {
 
   // Toggle todo completion
   const toggleTodo = (id) => {
-    setTodos(todos.map(todo => todo.id === id ? { ...todo, completed: !todo.completed } : todo));
+    setTodos((prevTodos) =>
+      prevTodos.map((todo) =>
+        todo.id === id ? { ...todo, completed: !todo.completed } : todo
+      )
+    );
   };
 
   // Delete a todo
-  const deleteTodo = (id) => {
-    setTodos(todos.filter(todo => todo.id !== id));
+ 
+    const deleteTodo = (id) => {
+      setTodos((prevTodos) => prevTodos.filter((todo) => todo.id !== id));
+    
   };
 
   return (
@@ -39,9 +45,9 @@ function TodoList() {
         <button type="submit">Add</button>
       </form>
       <ul>
-        {todos.map(todo => (
+        {todos.map((todo, id )=> (
           <li
-            key={todo.id}
+            key={id}
             onClick={() => toggleTodo(todo.id)}
             style={{ textDecoration: todo.completed ? "line-through" : "none" }}
           >
