@@ -38,8 +38,9 @@ function TodoList() {
           value={newTodo}
           onChange={(e) => setNewTodo(e.target.value)}
           placeholder="Add a new todo"
+          className="text"
         />
-        <button type="submit">Add</button>
+        <button className="btn" type="submit">Add</button>
       </form>
       <ul>
         {todos.map((todo) => (
@@ -49,7 +50,7 @@ function TodoList() {
             style={{ textDecoration: todo.completed ? "line-through" : "none" }}
           >
             {todo.text}
-            <button onClick={(e) => deleteTodo(todo.id, e)}>Delete</button>
+            <button className="btn" onClick={(e) => deleteTodo(todo.id, e)}>Delete</button>
           </li>
         ))}
       </ul>
