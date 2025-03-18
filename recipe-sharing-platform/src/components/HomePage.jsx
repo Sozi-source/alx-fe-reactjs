@@ -14,7 +14,7 @@ useEffect(()=>{
   
     
     return (
-    <div className="rounded-2xl shadow-lg">
+    <div className="rounded-2xl shadow-lg grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
         <h1 className="text-center font-bold text-2xl hover:bg-green-500">Recipe List</h1>
         {recipes.map((recipe)=>(
            <div key={recipe.id}>
