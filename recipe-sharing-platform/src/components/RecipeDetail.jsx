@@ -3,7 +3,7 @@
 import React, { useState } from 'react'
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import data from '../data.json'
+
 
 
 function RecipeDetail() {
@@ -32,6 +32,7 @@ if(!recipe) return <p>Loading...</p>
             <li key={index}>{ingredient}</li>
         ))}</ul>
         <p>{recipe.instructions}</p>
+        <p>{recipe.image}</p>
     </div>
   )
 }
