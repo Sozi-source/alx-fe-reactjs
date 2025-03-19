@@ -1,13 +1,16 @@
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import React from 'react'
 import './index.css'
 import HomePage from './components/HomePage'
+import RecipeDetail from './components/RecipeDetail'
 
 
 function App() {
   return (
     <div>
-      <h1 className='text-blue-500 text-center pt-10 font-bold text-4xl'>Recipe Sharing Platform</h1>
+      <h1 className='text-black text-center pt-10 font-bold text-4xl hover:bg-green-500'>Recipe Sharing Platform</h1>
       <HomePage/>
+      <RecipeDetail />
     </div>
   )
 }
