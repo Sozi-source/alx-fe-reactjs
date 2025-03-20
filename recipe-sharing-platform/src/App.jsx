@@ -9,10 +9,16 @@ function App() {
   return (
     <div>
       <h1 className='text-black text-center pt-10 font-bold text-4xl hover:bg-green-500'>Recipe Sharing Platform</h1>
-      <HomePage/>
-      <RecipeDetail />
+      
+      {/* Router */}
+      <Router>
+        <Routes>
+          <Route path='/' element={<HomePage/>} />
+          <Route path='/recipe/:id' element={<RecipeDetail/>} />
+        </Routes>
+      </Router>
     </div>
   )
 }
 
-export default App
+export default App;
