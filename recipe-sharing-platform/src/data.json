@@ -5,7 +5,7 @@
     "summary": "A classic Italian pasta dish with eggs, cheese, bacon, and black pepper.",
     "image": "https://via.placeholder.com/150",
     "ingredients": ["Spaghetti", "Eggs", "Parmesan cheese", "Bacon", "Black pepper"],
-    "instructions": "1. Cook spaghetti. 2. Fry bacon. 3. Mix eggs and cheese. 4. Combine everything."
+    "instructions": "Cook spaghetti.Fry bacon.Mix eggs and cheese.Combine everything"
   },
   {
     "id": 2,
@@ -13,6 +13,193 @@
     "summary": "Chunks of grilled chicken (tikka) cooked in a smooth buttery & creamy tomato based gravy.",
     "image": "https://via.placeholder.com/150",
     "ingredients": ["Chicken", "Yogurt", "Tomatoes", "Cream", "Spices"],
-    "instructions": "1. Marinate chicken. 2. Grill chicken. 3. Cook tomatoes and spices. 4. Add cream and mix."
-  }
-]
+    "instructions": "Marinate chicken.Grill chicken.Cook tomatoes and spices.Add cream and mix"
+  },
+  
+       
+    {
+      "id": 3,
+      "title": "Vegetable Stir Fry",
+      "summary": "Quick and healthy vegetable stir fry with soy sauce and garlic.",
+      "image": "https://via.placeholder.com/150",
+      "ingredients": ["Broccoli", "Carrots", "Bell Peppers", "Soy Sauce", "Garlic"],
+      "instructions": "Chop vegetables.Stir-fry with garlic.Add soy sauce.Serve hot"
+    },
+    {
+      "id": 4,
+      "title": "Beef Stroganoff",
+      "summary": "Tender beef in a creamy mushroom sauce, served with noodles or rice.",
+      "image": "https://via.placeholder.com/150",
+      "ingredients": ["Beef", "Mushrooms", "Onions", "Sour Cream", "Butter"],
+      "instructions": "Cook beef.Saute mushrooms & onions.Add sour cream.Serve over noodles"
+    },
+    {
+      "id": 5,
+      "title": "Lemon Garlic Shrimp Pasta",
+      "summary": "Garlic butter shrimp tossed in pasta with a hint of lemon.",
+      "image": "https://via.placeholder.com/150",
+      "ingredients": ["Shrimp", "Pasta", "Garlic", "Butter", "Lemon"],
+      "instructions": "Cook pasta.Saute shrimp with garlic.Toss with pasta and lemon juice"
+    },
+    {
+      "id": 6,
+      "title": "Caprese Salad",
+      "summary": "Simple Italian salad with tomatoes, mozzarella, and basil.",
+      "image": "https://via.placeholder.com/150",
+      "ingredients": ["Tomatoes", "Mozzarella", "Basil", "Olive Oil", "Balsamic Vinegar"],
+      "instructions": "Slice tomatoes and mozzarella.Arrange with basil.Drizzle with olive oil"
+    },
+    {
+      "id": 7,
+      "title": "Miso Soup",
+      "summary": "Traditional Japanese soup with miso paste, tofu, and seaweed.",
+      "image": "https://via.placeholder.com/150",
+      "ingredients": ["Miso Paste", "Tofu", "Seaweed", "Green Onions", "Dashi"],
+      "instructions": "Heat dashi.Add miso paste.Stir in tofu and seaweed.Serve warm"
+    },
+    {
+      "id": 8,
+      "title": "Greek Gyros",
+      "summary": "Savory Greek-style meat served in pita bread with tzatziki sauce.",
+      "image": "https://via.placeholder.com/150",
+      "ingredients": ["Pita Bread", "Lamb", "Tzatziki Sauce", "Tomatoes", "Onions"],
+      "instructions": "Cook lamb.Prepare tzatziki.Assemble in pita bread.Serve with veggies"
+    },
+    {
+      "id": 9,
+      "title": "Mango Smoothie",
+      "summary": "Refreshing mango smoothie blended with yogurt and honey.",
+      "image": "https://via.placeholder.com/150",
+      "ingredients": ["Mango", "Yogurt", "Honey", "Milk", "Ice Cubes"],
+      "instructions": "Blend all ingredients.Serve chilled"
+    },
+    {
+      "id": 10,
+      "title": "Chocolate Brownies",
+      "summary": "Rich and fudgy chocolate brownies with a crisp top layer.",
+      "image": "https://via.placeholder.com/150",
+      "ingredients": ["Cocoa Powder", "Butter", "Sugar", "Eggs", "Flour"],
+      "instructions": "Mix ingredients.Bake at 350°F.Let cool.Serve"
+    },
+    
+      {
+        "id": 11,
+        "title": "Jollof Rice",
+        "summary": "A popular West African dish made with rice, tomatoes, and spices.",
+        "image": "https://via.placeholder.com/150",
+        "ingredients": ["Rice", "Tomatoes", "Onions", "Bell Peppers", "Spices"],
+        "instructions": "Saute onions and peppers. Add blended tomatoes and cook. Add spices and rice. Simmer until done"
+      },
+      {
+        "id": 12,
+        "title": "Nyama Choma",
+        "summary": "Kenyan-style grilled meat, usually beef or goat, served with kachumbari.",
+        "image": "https://via.placeholder.com/150",
+        "ingredients": ["Beef", "Salt", "Pepper", "Lemon Juice", "Garlic"],
+        "instructions": "Marinate meat. Grill over charcoal. Serve with kachumbari salad"
+      },
+      {
+        "id": 13,
+        "title": "Bobotie",
+        "summary": "A South African baked spiced minced meat dish topped with an egg-based custard.",
+        "image": "https://via.placeholder.com/150",
+        "ingredients": ["Minced Beef", "Bread", "Milk", "Onions", "Curry Powder"],
+        "instructions": "Soak bread in milk. Fry onions and curry powder. Add minced beef and cook. Top with custard and bake"
+      },
+      {
+        "id": 14,
+        "title": "Egusi Soup",
+        "summary": "A Nigerian soup made with ground melon seeds and vegetables.",
+        "image": "https://via.placeholder.com/150",
+        "ingredients": ["Egusi Seeds", "Palm Oil", "Spinach", "Meat", "Stockfish"],
+        "instructions": "Blend egusi seeds. Fry in palm oil. Add meat and stock. Simmer with vegetables"
+      },
+      {
+        "id": 15,
+        "title": "Injera with Doro Wat",
+        "summary": "Ethiopian sourdough flatbread served with spicy chicken stew.",
+        "image": "https://via.placeholder.com/150",
+        "ingredients": ["Teff Flour", "Chicken", "Berbere Spice", "Onions", "Butter"],
+        "instructions": "Ferment teff batter. Cook injera on a hot pan. Simmer chicken with berbere spice and onions"
+      },
+      {
+        "id": 16,
+        "title": "Kapenta with Sadza",
+        "summary": "A Zimbabwean dish of small dried fish served with maize porridge.",
+        "image": "https://via.placeholder.com/150",
+        "ingredients": ["Kapenta Fish", "Tomatoes", "Onions", "Maize Meal", "Salt"],
+        "instructions": "Fry kapenta with tomatoes and onions. Cook maize meal into sadza. Serve together"
+      },
+      {
+        "id": 17,
+        "title": "Bunny Chow",
+        "summary": "A South African street food dish of curry served in a hollowed-out bread loaf",
+        "image": "https://via.placeholder.com/150",
+        "ingredients": ["Bread", "Chicken", "Curry Powder", "Tomatoes", "Potatoes"],
+        "instructions": "Cook chicken curry with spices. Hollow out bread. Fill with curry"
+      },
+      {
+        "id": 18,
+        "title": "Matoke",
+        "summary": "A Ugandan dish of cooked plantains, mashed with spices.",
+        "image": "https://via.placeholder.com/150",
+        "ingredients": ["Plantains", "Onions", "Tomatoes", "Garlic", "Salt"],
+        "instructions": "Peel and chop plantains. Cook with onions and tomatoes. Mash and serve"
+      },
+      {
+        "id": 19,
+        "title": "Thieboudienne",
+        "summary": "A Senegalese one-pot dish of rice, fish, and vegetables.",
+        "image": "https://via.placeholder.com/150",
+        "ingredients": ["Fish", "Rice", "Tomatoes", "Carrots", "Cabbage"],
+        "instructions": "Fry fish. Cook vegetables and tomatoes. Add rice and simmer until done"
+      },
+      {
+        "id": 20,
+        "title": "Chakalaka",
+        "summary": "A South African spicy vegetable relish served with bread or pap.",
+        "image": "https://via.placeholder.com/150",
+        "ingredients": ["Carrots", "Beans", "Tomatoes", "Onions", "Chili"],
+        "instructions": "Grate carrots. Fry onions and chili. Add tomatoes and beans. Simmer and serve"
+      },
+      
+        {
+          "id": 21,
+          "title": "Ugali with Sukuma Wiki",
+          "summary": "A staple Kenyan meal of maize flour porridge served with sautéed collard greens",
+          "image": "https://via.placeholder.com/150",
+          "ingredients": ["Maize Flour", "Water", "Collard Greens", "Onions", "Salt"],
+          "instructions": "Boil water. Add maize flour gradually while stirring. Cook until thick. Sauté collard greens with onions and salt. Serve together"
+        },
+              
+        {
+          "id": 22,
+          "title": "Pilau",
+          "summary": "A fragrant Swahili rice dish cooked with meat, spices, and broth.",
+          "image": "https://via.placeholder.com/150",
+          "ingredients": ["Rice", "Beef", "Onions", "Garlic", "Pilau Spice"],
+          "instructions": "Fry onions, garlic, and spices. Add beef and cook. Add rice and broth. Simmer until rice is tender"
+        },
+        {
+          "id": 23,
+          "title": "Githeri",
+          "summary": "A nutritious one-pot dish of boiled maize and beans, often enjoyed as a main meal.",
+          "image": "https://via.placeholder.com/150",
+          "ingredients": ["Maize", "Beans", "Onions", "Tomatoes", "Salt"],
+          "instructions": "Boil maize and beans until tender. Sauté onions and tomatoes. Mix with the boiled maize and beans. Serve hot"
+        },
+        
+        {
+          "id": 24,
+          "title": "Mutura",
+          "summary": "Kenyan-style grilled sausage made from minced meat and spices, stuffed into an intestine casing.",
+          "image": "https://via.placeholder.com/150",
+          "ingredients": ["Intestines", "Minced Meat", "Onions", "Garlic", "Spices"],
+          "instructions": "Clean intestines. Mix minced meat with spices. Stuff meat mixture into intestines. Boil, then grill until crispy"
+        }
+      
+    ]
+    
+  
+  
+

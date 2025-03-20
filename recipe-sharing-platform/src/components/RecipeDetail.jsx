@@ -21,11 +21,19 @@ useEffect(()=>{
 if(!recipe) return <p>Recipe Loading...</p>
 
   return (   
-        <div>
-            <button onClick={()=>navigate(-1)}>Back</button>
-            <h1>{recipe.title}</h1>
-            <p> {recipe.ingredients}</p>
-            <p> {recipe.instructions} </p>
+        <div className='max-w-md mx-auto px-6 py-6 bg-rose-200 shadow-xl rounded-2xl border border-gray-200 mt-5'>
+            <button onClick={()=>navigate(-1)} className='mb-4 px-4 bg-blue-300 text-gray-800 rounded-lg hover:bg-gray-400 transition'>Back</button>
+            
+            <p className='text-2xl font-bold text-gray-800 mb-2'>{recipe.title}</p>
+
+            <h1 className='text-lg font-bold text-gray-700 mt-4 gap-2'>Ingredients</h1>
+            <p className='text-1g text-gray-700 mt-4 gap-2 italic'> {recipe.ingredients?.join(", ")}</p>
+
+            <p className='text-gray-600 font-bold'>Instructions</p>
+            <ol className='list-decimal list-inside'> {recipe.instructions?.split(".").map((step, index)=>(
+                <li key={index}>{step}. </li>
+            ))} 
+            </ol>
         </div>
      )
 }
