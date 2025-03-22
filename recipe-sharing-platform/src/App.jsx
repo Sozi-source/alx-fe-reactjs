@@ -3,11 +3,13 @@ import React from 'react'
 import './index.css'
 import HomePage from './components/HomePage'
 import RecipeDetail from './components/RecipeDetail'
+import AddRecipeForm from './components/AddRecipeForm'
 
 
 function App() {
   return (
     <div>
+      <AddRecipeForm />
       
       {/* Router */}
       <Router>
