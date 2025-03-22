@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 
+
 function AddRecipeForm() {
 
 const[title, setTitle]=useState("")
@@ -26,7 +27,8 @@ const newRecipe ={
     ingredients: ingredients.trim(),
     steps: steps.trim()
 }
-console.log("New Recipes", newRecipe)
+// store new recipes in localStorage
+localStorage.setItem("New Recipes", JSON.stringify(newRecipe))
     // clear fields
     setTitle("");
     setIngredients("");
