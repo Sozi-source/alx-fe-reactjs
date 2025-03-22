@@ -38,27 +38,27 @@ return (
     <div className='flex justify-center mt-10'>
         <form onSubmit={handleSubmit} className='flex flex-col sm:flex-row flex-wrap gap-4 sm:gap-6 shadow-2xl bg-gray-300'>
             <div>
-                <label htmlFor="title">Title</label><br />
+                <label htmlFor="title"className='font-bold font-serif'>Title</label><br />
             <textarea name="title" id="title" value={title} onChange={(e)=>setTitle(e.target.value)}
             className='border border-gray-400'></textarea> <br />
             {errors?.title && <p className='text-red-500'>{errors.title}</p>}
             </div>
 
             <div >
-                <label htmlFor="ingredient">Ingredients</label><br />
+                <label htmlFor="ingredient" className='font-bold font-serif'>Ingredients</label><br />
             <textarea name="ingredients" id="ingredient" value={ingredients} onChange={(e)=>setIngredients(e.target.value)}
             className='border border-gray-400'></textarea> <br />
             {errors?.ingredients && <p className='text-red-500'>{errors.ingredients}</p>}
             </div>
 
             <div>
-                <label htmlFor="preparation">Preparation Steps</label><br />
+                <label htmlFor="preparation" className='font-bold font-serif' >Preparation Steps</label><br />
             <textarea name="preparation" id="preparation" value={steps} onChange={(e)=>setSteps(e.target.value)}
             className='border border-gray-400 mt'></textarea> <br />
             {errors?.steps && <p className='text-red-500'>{errors.steps}</p>}
             </div>
             
-            <button type='submit' className=' rounded-md mt-5 border border-black bg-blue-400 hover:bg-red-500 w-20 h-12'>Submit</button>   
+            <button type='submit' className=' rounded-md mt-5 border border-black bg-blue-400 hover:bg-red-500 w-20 h-12 font-semibold'>Submit</button>   
                   
         </form>
     </div>
