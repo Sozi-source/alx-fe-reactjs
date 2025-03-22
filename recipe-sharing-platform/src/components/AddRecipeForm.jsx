@@ -4,7 +4,7 @@ function AddRecipeForm() {
 
 const[title, setTitle]=useState("")
 const[ingredients, setIngredients]= useState("")
-const[preparation, setPreparation]= useState("")
+const[steps, setSteps]= useState("")
 const[error, setError] =useState({})
 
 const handleSubmit=(e)=>{
@@ -12,9 +12,9 @@ const handleSubmit=(e)=>{
 
     // Validation Error
 const validationError ={}
-if(!title.trim())validationError.title= "Title is required"
-if(!ingredients.trim())validationError.ingredients = "Ingredients is required"
-if(!preparation.trim())validationError.preparation = "Preparation method is required"
+if(!title.trim())validationError.title= "Title required"
+if(!ingredients.trim())validationError.ingredients = "Ingredients required"
+if(!steps.trim())validationError.steps = "Preparation steps required"
 
 if (Object.keys(validationError).length > 0){
     setError(validationError);
@@ -24,13 +24,13 @@ if (Object.keys(validationError).length > 0){
 const newRecipe ={
     title: title.trim(),
     ingredients: ingredients.trim(),
-    preparation: preparation.trim()
+    steps: steps.trim()
 }
 console.log("New Recipes", newRecipe)
     // clear fields
     setTitle("");
     setIngredients("");
-    setPreparation("");
+    setSteps("");
     setError({});
 }
 
@@ -52,10 +52,10 @@ return (
             </div>
 
             <div>
-                <label htmlFor="preparation">Preparation</label><br />
-            <textarea name="preparation" id="preparation" value={preparation} onChange={(e)=>setPreparation(e.target.value)}
+                <label htmlFor="preparation">Preparation Steps</label><br />
+            <textarea name="preparation" id="preparation" value={steps} onChange={(e)=>setSteps(e.target.value)}
             className='border border-gray-400 mt'></textarea> <br />
-            {error?.preparation && <p className='text-red-500'>{error.preparation}</p>}
+            {error?.steps && <p className='text-red-500'>{error.steps}</p>}
             </div>
             
             <button type='submit' className=' rounded-md mt-5 border border-black bg-blue-400 hover:bg-red-500 w-20 h-12'>Submit</button>   
