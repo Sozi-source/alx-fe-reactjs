@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const GITHUB_API_URL = "https://api.github.com/search/users";
-const GITHUB_PAT = "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"; // Securely get PAT
+const GITHUB_PAT = "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"; // Securely get PAT
 
 export const fetchUserData = async (username, location, minRepos, page = 1) => {
   try {
