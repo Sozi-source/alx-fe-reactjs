@@ -2,24 +2,29 @@ import React from 'react'
 import { useState } from 'react'
 import { fetchUserData } from '../services/githubService';
 
-const SearchBar =({onSearch})=> {
+const Search =()=> {
 
 const[username, setUsername]=useState("");
 const[userData, setUserData]=useState(null);
 const[error, setError]=useState(null);
 const [loading, setLoading] = useState(false)
+const [location, setLocation] = useState("")
+const [miniRepos, setMiniRepos] =useState("")
 
 
 const handleSubmit = async(e)=>{
 e.preventDefault()
 if(!username.trim()) return;
 
-setLoading(true)
-setError(null)
-setUserData(null)
+setLoading(true);
+setError(null);
+setUserData(null);
+setUsername("");
+setLocation("");
+setMiniRepos("");
 
 try{
-  const data = await fetchUserData(username);
+  const data = await fetchUserData(username, location, miniRepos);
   setUserData(data);
 }
 catch (err) {
@@ -31,10 +36,23 @@ catch (err) {
 
 
 return (
-  <div className='flex flex-col justify-center items-center h-screen'>
-      <form onSubmit={handleSubmit}> 
+  <div className='flex flex-col justify-center items-center h-screen shadow-lg'>
+    
+    <div className='bg-white shadow-lg rounded-lg p-6 w-full max-w-lg'>
+    <h1 className='flex justify-center items-center text-3xl mt-3 border border-gray-400 bg-amber-100'>Github User Search</h1>
+      <form onSubmit={handleSubmit} className='mt-5'> 
           <input type="text" placeholder='Enter github username' 
-          value={username} onChange={(e)=>setUsername(e.target.value)} className='border border-gray-500 p-3 rounded-lg text-center'/>
+          value={username} onChange={(e)=>setUsername(e.target.value)} 
+          className='border border-gray-500 p-3 rounded-lg text-center'/>
+
+          <input type="text" placeholder='Enter location' 
+          value={location} onChange={(e)=>setLocation(e.target.value)}
+          className='border border-gray-500 p-3 rounded-lg text-center ml-5'/>
+
+          <input type="number" placeholder='Minimun Repositories' 
+          value={miniRepos} onChange={(e)=>setMiniRepos(e.target.value)}
+          className='border border-gray-500 p-3 rounded-lg text-center ml-5'/>
+
       
           <button type='submit' className='mt-5 bg-blue-400 hover:bg-blue-700 w-fit mx-auto p-3 rounded-lg ml-5'>Search</button>
       </form>
@@ -71,11 +89,12 @@ return (
         </div>
       )}
 
+    </div>
        
   </div>
 )}
 
-export default SearchBar;
+export default Search;
 
 
 
