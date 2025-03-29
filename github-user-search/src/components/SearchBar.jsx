@@ -23,7 +23,7 @@ try{
   setUserData(data);
 }
 catch (err) {
-  setError("User does not exist !!")
+  setError("Looks like we cant find the user")
 } finally{
   setLoading(false)
 }
