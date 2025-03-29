@@ -7,26 +7,28 @@ const SearchBar =({onSearch})=> {
 const[username, setUsername]=useState("");
 const[userData, setUserData]=useState(null);
 const[error, setError]=useState(null);
+const [loading, setLoading] = useState(false)
 
 
 const handleSubmit = async(e)=>{
 e.preventDefault()
 if(!username.trim()) return;
 
+setLoading(true)
+setError(null)
+setUserData(null)
+
 try{
-  setError (null);
-const data = await fetchUserData(username);
-setUserData(data) 
-
+  const data = await fetchUserData(username);
+  setUserData(data);
 }
-
-catch (err){
-  setUserData(null)
-  setError("User does not exist!!")
+catch (err) {
+  setError("User does not exist !!")
+} finally{
+  setLoading(false)
 }
+};
 
-
-}
 
 return (
   <div className='flex flex-col justify-center items-center h-screen'>
@@ -37,6 +39,10 @@ return (
           <button type='submit' className='mt-5 bg-blue-400 hover:bg-blue-700 w-fit mx-auto p-3 rounded-lg ml-5'>Search</button>
       </form>
 
+      {/* Display Loading  */}
+      {loading && (<p className='mt-4 text-gray-600 font-bold'>Loading...</p>)}
+      
+      
       {/* Display Error */}
       
       {error && (
