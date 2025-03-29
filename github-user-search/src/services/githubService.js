@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const GITHUB_API_URL = "https://api.github.com/search/users"; // Correct endpoint
+const GITHUB_API_URL = "https://api.github.com/search/users?q"; // Correct endpoint
 
 export const fetchUserData = async (username, location, minRepos, page=1) => {
   try {
