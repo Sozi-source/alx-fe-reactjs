@@ -21,7 +21,7 @@ useEffect(()=>{
             <h1 className="text-center text-blue-700 mt-10 text-xl">{recipe.title}</h1>
             {/* <p className="text-center text-green-500 mt-3">{recipe.summary}</p> */}
             <Link to={`/recipe/${recipe.id}`}> 
-            <button className="text-center text-green-400 text justify-center text-xl hover:bg-amber-500">View Details</button>
+            <button className="text-center text-black text justify-center text-xl hover:bg-amber-500">View Details</button>
             </Link>
            </div> 
         ))}
