@@ -94,7 +94,7 @@ return (
 
 
         {/* Grid layout responsive */}
-         <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6'>
+         <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-10'>
          {users.map((user)=>(
             <div key={user.id}>
               
@@ -113,7 +113,10 @@ return (
 
            {/* 🔹 Load More Button */}
         {users.length > 0 && users.length < totalResults && (
-        <button onClick={loadMore} className='mt-4 bg-green-500 hover:bg-green-700 text-white p-3 rounded-lg w-full max-w-sm'>Load More</button>
+        <div className='flex justify-center mb-10'>
+          <button onClick={loadMore} 
+          className='mt-4 bg-green-500 hover:bg-green-700 text-white p-3 rounded-lg w-full max-w-sm flex justify-center items-center'>Load More</button>
+        </div>
       )}
     </div>
       )}
