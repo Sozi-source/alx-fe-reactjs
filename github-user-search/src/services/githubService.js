@@ -1,33 +1,83 @@
-import axios from "axios";
+// import axios from "axios";
 
-const GITHUB_API_URL = "https://api.github.com/search/users?q"; // Correct endpoint
+// const GITHUB_API_URL = "https://api.github.com/search/users?q"; // Correct endpoint
+// const GITHUB_PAT = "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"
 
-export const fetchUserData = async (username, location, minRepos, page=1) => {
-  try {
-    const query = `q=${username} ${location ? `location:${location}` : ""} ${
-      minRepos ? `repos:>${minRepos}` : ""
-    }&page=${page}&per_page=10`;
+// export const fetchUserData = async (username, location, minRepos, page=1) => {
+//   try {
+//     const query = `q=${username} ${location ? `location:${location}` : ""} ${
+//       minRepos ? `repos:>${minRepos}` : ""
+//     }`;
 
-    console.log("Fetching data with query:", query);
+//     const response = await axios.get(`${GITHUB_API_URL}?q=${query}&page=${page}&per_page=10`, {
+//       headers: {
+//         Authorization: `token ${GITHUB_PAT}`
+//       }
+//     });
 
-    const response = await axios.get(`${GITHUB_API_URL}?${query}`);
+//     if(!response.data.items || response.data.items.length === 0){
+//       throw new Error ("No users found with the given criteria");
+//     }
 
-    if(!response.data.items || response.data.items.length === 0){
-      throw new Error ("No users found with the given criteria");
-    }
+//     const userDetailsPromises = response.data.items.map((user)=>
+//     axios.get(user.url, {
+//       headers: {
+//         Authorization: `token ${GITHUB_PAT}`
+//       }
 
-    const userDetailsPromises = response.data.items.map((user)=>
-    axios.get(user.url).then((res)=>res.data));
+//     }).then((res)=>res.data));
 
-    const usersDetailed = await Promise.all(userDetailsPromises);
+//     const usersDetailed = await Promise.all(userDetailsPromises);
   
 
-    return{
+//     return{
+//       items: usersDetailed,
+//       total_count: response.data.total_count,
+//     };
+// } catch (err){
+  
+//   throw new Error(err.response?.data?.message || "User not found or API limit exceeded")
+// }
+// };
+
+import axios from "axios";
+
+const GITHUB_API_URL = "https://api.github.com/search/users";
+const GITHUB_PAT = "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"; // Securely get PAT
+
+export const fetchUserData = async (username, location, minRepos, page = 1) => {
+  try {
+    const query = `${username} ${location ? `location:${location}` : ""} ${
+      minRepos ? `repos:>${minRepos}` : ""
+    }`;
+
+    const response = await axios.get(`${GITHUB_API_URL}?q=${encodeURIComponent(query)}&page=${page}&per_page=10`, {
+      headers: {
+        Authorization: `token ${GITHUB_PAT}`,
+      },
+    });
+
+    if (!response.data.items || response.data.items.length === 0) {
+      throw new Error("No users found with the given criteria");
+    }
+
+    const userDetailsPromises = response.data.items.map(async (user) => {
+      const res = await axios.get(user.url, {
+        headers: {
+          Authorization: `token ${GITHUB_PAT}`,
+        },
+      });
+      return res.data;
+    });
+
+    const usersDetailed = await Promise.all(userDetailsPromises);
+
+    return {
       items: usersDetailed,
       total_count: response.data.total_count,
     };
-} catch (err){
-  console.error("Error fetching data:", err.response?.data || err.message);
-  throw new Error(err.response?.data?.message || "User not found or API limit exceeded")
-}
+  } catch (err) {
+    throw new Error(err.response?.data?.message || "User not found or API limit exceeded");
+  }
 };
+
