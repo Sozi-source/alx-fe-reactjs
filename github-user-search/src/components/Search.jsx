@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, useRef } from "react";
 import { fetchUserData } from "../services/githubService";
 import debounce from "lodash.debounce";
 
@@ -12,19 +12,19 @@ const Search = () => {
   const [totalResults, setTotalResults] = useState(0);
   const [users, setUsers] = useState([]);
 
+  const isFirstRender = useRef(true)
   // ✅ Debounce API calls to prevent excessive fetching while typing
   const debouncedFetch = useCallback(
-    debounce(async (query, location, minRepos) => {
+    debounce(async (query, location, minRepos, page=1) => {
       if (!query.trim() && !location.trim() && !minRepos.trim()) return;
 
       setLoading(true);
       setError(null);
-      setUsers([]);
-      setPage(1);
+      
 
       try {
-        const data = await fetchUserData(query, location, minRepos, 1);
-        setUsers(data.items || []);
+        const data = await fetchUserData(query, location, minRepos, page);
+        setUsers((prevUsers)=> (page===1? data.items :[...prevUsers, ...data.items]))
         setTotalResults(data.total_count || 0);
       } catch (err) {
         setError("Looks like we cant find the user");
@@ -35,6 +35,20 @@ const Search = () => {
     []
   );
 
+  useEffect(()=>{
+    return ()=> debouncedFetch.cancel();
+
+  }, [])
+
+useEffect(()=>{
+  if(isFirstRender.current){
+    isFirstRender.current=false;
+    return
+  }
+  debouncedFetch(username, location, minRepos)
+},[username, location, minRepos])
+
+
   const handleSubmit =(e)=>{
     e.preventDefault();
     debouncedFetch(username, location, minRepos);
@@ -42,10 +56,12 @@ const Search = () => {
 
   // ✅ Load More Users (Pagination)
   const loadMore = async () => {
-    const nextPage = page + 1;
+    if(loading || users.length > totalResults) return;
+
     setLoading(true);
 
     try {
+      const nextPage = page + 1;
       const data = await fetchUserData(username, location, minRepos, nextPage);
       setUsers((prevUsers) => [...prevUsers, ...data.items]);
       setPage(nextPage);
