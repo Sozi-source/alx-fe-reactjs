@@ -27,7 +27,7 @@ const Search = () => {
         setUsers(data.items || []);
         setTotalResults(data.total_count || 0);
       } catch (err) {
-        setError("Unable to fetch users. Please try again.");
+        setError("Looks like we cant find the user");
       } finally {
         setLoading(false);
       }
@@ -35,11 +35,10 @@ const Search = () => {
     []
   );
 
-  useEffect(() => {
-    if (username || location || minRepos) {
-      debouncedFetch(username, location, minRepos);
-    }
-  }, [username, location, minRepos, debouncedFetch]);
+  const handleSubmit =(e)=>{
+    e.preventDefault();
+    debouncedFetch(username, location, minRepos);
+  }
 
   // ✅ Load More Users (Pagination)
   const loadMore = async () => {
@@ -65,7 +64,7 @@ const Search = () => {
           GitHub User Search
         </h1>
 
-        <form className="mt-5 flex flex-col gap-4">
+        <form className="mt-5 flex flex-col gap-4" onSubmit={handleSubmit}>
           <input
             type="text"
             placeholder="Enter GitHub username"
@@ -89,6 +88,9 @@ const Search = () => {
             onChange={(e) => setMinRepos(e.target.value)}
             className="border border-gray-500 p-3 rounded-lg w-full"
           />
+          <div className="flex justify-center items-center">
+          <button type="submit" className="text-2xl font-bold border border-gray-400 w-[30%] rounded-l bg-blue-300 hover:bg-blue-700">Search</button>
+          </div>
         </form>
 
         {/* Display Loading & Error */}
