@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const GITHUB_API_URL = "https://api.github.com/search/users";
+const GITHUB_API_URL = "https://api.github.com/search/users?q=";
 const GITHUB_TOKEN = import.meta.env.VITE_APP_GITHUB_API_KEY || "";
 const headers = GITHUB_TOKEN ? { Authorization: `token ${GITHUB_TOKEN}` } : {};
 
@@ -28,7 +28,7 @@ export const fetchUserData = async (username = "", location = "", minRepos = "",
     const query = queryParts.join(" ");
 
     // Make the initial API request
-    const response = await axios.get(`${GITHUB_API_URL}?q=${encodeURIComponent(query)}&page=${page}&per_page=12`, { headers });
+    const response = await axios.get(`${GITHUB_API_URL}${encodeURIComponent(query)}&page=${page}&per_page=12`, { headers });
 
     if (!response.data.items?.length) {
       throw new Error("No users found matching your search criteria.");
