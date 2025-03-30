@@ -2,7 +2,7 @@ import axios from "axios";
 
 console.log("GitHub Token Loaded:", import.meta.env.VITE_APP_GITHUB_API_KEY ? "Yes" : "No");
 
-const GITHUB_API_URL = "https://api.github.com/search/users";
+const GITHUB_API_URL = "https://api.github.com/search/users?q";
 const GITHUB_TOKEN = import.meta.env.VITE_APP_GITHUB_API_KEY || "";
 const headers = GITHUB_TOKEN ? { Authorization: `token ${GITHUB_TOKEN}` } : {};
 
